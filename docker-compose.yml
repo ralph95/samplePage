@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: sample-page
+    ports:
+      - "3000:80"
+      - "3001:80"
+      - "3002:80"
+    networks:
+      - webnet
+    restart: always # Ensures the container restarts automatically on server reboot
+
+networks:
+  webnet:
+    driver: bridge
